@@ -7,14 +7,14 @@ repoURL: "https://github.com/AdriKat2022/AMJV-CTF"
 
 ## Context
 
-### Team:
+### Team
 
 - Adrien Schroedel
 - Myself
 
 This project took place in my second year at Télecom SudParis for the course "Architecture and Video Game Engine."
 
-### Project Requirements:
+### Project Requirements
 
 - Code a three-dimensional game of "Capture the Flag" on Unity.
 - It must be an RTS (similar to Starcraft, Age of Empires, etc.)
@@ -23,7 +23,7 @@ This project took place in my second year at Télecom SudParis for the course "A
 - The game must have some UI and sounds.
 - Other specific requirements (e.g., the unit that has the flag is the king, the king cannot use its spell, etc.)
 
-## Magic Circus:
+## Magic Circus
 
 In the end, our game had nothing to do with a circus, but I thought it was fun to add a theme to our game.
 

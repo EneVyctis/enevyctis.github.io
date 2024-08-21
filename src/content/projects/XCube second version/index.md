@@ -1,6 +1,6 @@
 ---
 title: "ImprovedXCube"
-description: "A Unity version of XCube recoded by myself"
+description: "A Unity version of XCube"
 date: "Jan 26, 2024"
 repoURL: "https://github.com/EneVyctis/ImprovedXCube"
 ---
@@ -16,9 +16,8 @@ Currently, this project covers less than the previous one, no multiplayer yet, b
 
 Gamemodes implemented so far :
 
-[X] Local
+- [X] Local
 
-[X] versus AI
+- [X] versus AI
 
-[ ] Multiplayer
-    
+- [ ] Multiplayer
