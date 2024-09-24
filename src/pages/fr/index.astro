@@ -5,7 +5,7 @@ import PageLayout from "@layouts/PageLayout.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import Link from "@components/Link.astro";
 import { dateRange } from "@lib/utils";
-import { SITE, HOME, SOCIALS } from "@consts";
+import { SITE, HOME, SOCIALS, lang } from "@consts";
 
 const blog = (await getCollection("blog"))
   .filter(post => !post.data.draft)
@@ -60,14 +60,14 @@ const work = await Promise.all(
           <h5 class="font-semibold text-black dark:text-white">
             Latest posts
           </h5>
-          <Link href="/fr/blog">
+          <Link href={`/${lang}`+"/blog"}>
             See all posts
           </Link>
         </div>
         <ul class="flex flex-col gap-4">
           {blog.map(post => (
             <li>
-              <ArrowCard entry={post} lang="fr" />
+              <ArrowCard entry={post} lang="fr"/>
             </li>
           ))}
         </ul>
@@ -78,7 +78,7 @@ const work = await Promise.all(
           <h5 class="font-semibold text-black dark:text-white">
             Work Experience
           </h5>
-          <Link href="/fr/work">
+          <Link href={`/${lang}`+"/work"}>
             See all work
           </Link>
         </div>
@@ -107,7 +107,7 @@ const work = await Promise.all(
           <h5 class="font-semibold text-black dark:text-white">
             Recent projects
           </h5>
-          <Link href="/fr/projects">
+          <Link href={`/${lang}`+"/projects"}>
             See all projects
           </Link>
         </div>

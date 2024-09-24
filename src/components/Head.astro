@@ -100,6 +100,18 @@ const { title, description, image = "/nano.png" } = Astro.props;
       toggleTheme(window.matchMedia("(prefers-color-scheme: dark)").matches);
     });
 
+    const languageSwitchButton = document.getElementById('language-switch-button');
+    languageSwitchButton.addEventListener('click', () => {
+                const currentPath = window.location.pathname;
+                if (currentPath.startsWith('/en')) {
+                  window.location.pathname = currentPath.replace('/en', '/fr');
+                } else if (currentPath.startsWith('/fr')) {
+                  window.location.pathname = currentPath.replace('/fr', '/en');
+                } else {
+                  window.location.pathname = '/en' + currentPath;
+                }
+              });
+
     window.matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", event => {
         if (localStorage.theme === "system") {

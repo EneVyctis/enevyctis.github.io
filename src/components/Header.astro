@@ -2,33 +2,64 @@
 import Container from "@components/Container.astro";
 import Link from "@components/Link.astro";
 import { SITE } from "@consts";
+
+// Partie serveur : définir la langue à partir de l'URL
+let lang = 'fr'; // Langue par défaut
+const currentPath = Astro.url.pathname;
+
+if (currentPath.startsWith('/en')) {
+  lang = 'en';
+}
 ---
 
 <header>
   <Container>
     <div class="flex flex-wrap gap-y-2 justify-between">
-      <Link href="/" underline={false}>
+      <Link href={`/${lang}`} underline={false}>
         <div class="font-semibold">
           {SITE.NAME}
         </div>
       </Link>
       <nav class="flex gap-1">
-        <Link href="/blog">
+        <Link href={`/${lang}/blog`}>
           blog
         </Link>
-        <span>
-          {`/`}
-        </span>
-        <Link href="/work">
+        <span>{`/`}</span>
+        <Link href={`/${lang}/work`}>
           work
         </Link>
-        <span>
-          {`/`}
-        </span>
-        <Link href="/projects">
+        <span>{`/`}</span>
+        <Link href={`/${lang}/projects`}>
           projects
         </Link>
       </nav>
     </div>
   </Container>
 </header>
+
+<!-- Script côté client pour mise à jour dynamique -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    let lang = "fr"; // Langue par défaut côté client
+    const currentPath = window.location.pathname;
+
+    if (currentPath.startsWith('/en')) {
+      lang = "en";
+    } else {
+      lang = "fr";
+    }
+
+    // Met à jour dynamiquement les liens avec la langue correcte
+    document.querySelectorAll('a').forEach(link => {
+      if (link.href.includes('/work')) {
+        link.href = `/${lang}/work`;
+      }
+      if (link.href.includes('/projects')) {
+        link.href = `/${lang}/projects`;
+      }
+      if (link.href.includes('/blog')) {
+        link.href = `/${lang}/blog`;
+      }
+    });
+  });
+</script>
