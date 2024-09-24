@@ -2,6 +2,7 @@
 title: "ImprovedXCube"
 description: "A Unity version of XCube"
 date: "Jan 26, 2024"
+lang: "en"
 repoURL: "https://github.com/EneVyctis/ImprovedXCube"
 ---
 ## Context

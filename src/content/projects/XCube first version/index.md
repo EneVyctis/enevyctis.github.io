@@ -2,6 +2,7 @@
 title: "XCube first version"
 description: "My first project in a team of 4 devs"
 date: "Jan 24, 2023"
+lang: "en"
 repoURL: "https://github.com/EneVyctis/FirstYearProject"
 ---
 ## Context

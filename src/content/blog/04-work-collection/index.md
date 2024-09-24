@@ -2,6 +2,7 @@
 title: "Work Collection"
 description: "How to add work experience."
 date: "Mar 19 2024"
+lang: "en"
 draft: true
 ---
 

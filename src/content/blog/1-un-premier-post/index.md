@@ -2,6 +2,7 @@
 title: "Un premier Post sur nano"
 description: "Un premier post pour ne pas parler de grand chose"
 date: "Aug 25 2024"
+lang: "fr"
 draft: false
 ---
 

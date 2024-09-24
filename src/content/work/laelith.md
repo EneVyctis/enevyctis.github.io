@@ -1,6 +1,7 @@
 ---
 company: "Laelith Fundation"
 role: "[Internship] Software Developer"
+lang: "en"
 dateStart: "07/01/2024"
 dateEnd: "08/09/2024"
 ---

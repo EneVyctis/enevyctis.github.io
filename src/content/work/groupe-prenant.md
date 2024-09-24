@@ -1,6 +1,7 @@
 ---
 company: "Groupe Prenant"
 role: "[Internship] Factory Worker"
+lang: "en"
 dateStart: "07/03/2023"
 dateEnd: "07/28/2023"
 ---

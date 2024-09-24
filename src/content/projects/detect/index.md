@@ -2,6 +2,7 @@
 title: "Detect"
 description: "a school project on wireless technologies"
 date: "Mar 12 2024"
+lang: "en"
 repoURL: "https://github.com/EneVyctis/Detect"
 ---
 

@@ -2,6 +2,7 @@
 title: "Projects Collection"
 description: "How to add projects to your portfolio."
 date: "Mar 20 2024"
+lang: "en"
 draft: true
 ---
 
