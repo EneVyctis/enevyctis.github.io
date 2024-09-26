@@ -6,13 +6,14 @@ import FormattedDate from "@components/FormattedDate.astro";
 import { readingTime } from "@lib/utils";
 import BackToPrev from "@components/BackToPrev.astro";
 import Link from "@components/Link.astro";
+import type { getEntrySlug } from "node_modules/astro/dist/content/utils";
 
 export async function getStaticPaths() {
   const projects = (await getCollection("projects"))
-    .filter(post => !post.data.draft && post.data.lang == "fr")
+    .filter(post => !post.data.draft)
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
   return projects.map((project) => ({
-    params: { slug: project.slug },
+    params: { slug: project.slug.replace("/indexfr","index")},
     props: project,
   }));
 }
