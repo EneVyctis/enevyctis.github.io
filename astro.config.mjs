@@ -2,5 +2,5 @@ import { defineConfig } from "astro/config";
 
 
 export default defineConfig({
-  site: 'https://enevyctis.io'
+  site: 'https://enevyctis.github.io'
 });
