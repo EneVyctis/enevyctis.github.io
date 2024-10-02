@@ -1,154 +1,69 @@
 ---
-import { getCollection } from "astro:content";
 import Container from "@components/Container.astro";
-import PageLayout from "@layouts/PageLayout.astro";
-import ArrowCard from "@components/ArrowCard.astro";
-import Link from "@components/Link.astro";
-import { dateRange } from "@lib/utils";
-import { SITE, HOME, SOCIALS } from "@consts";
-
-const blog = (await getCollection("blog"))
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0,SITE.NUM_POSTS_ON_HOMEPAGE);
-
-const projects = (await getCollection("projects"))
-  .filter(project => !project.data.draft && project.data.lang == "fr")
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0,SITE.NUM_PROJECTS_ON_HOMEPAGE);
-
-const allwork = (await getCollection("work"))
-  .sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf())
-  .slice(0,SITE.NUM_WORKS_ON_HOMEPAGE);
-
-const work = await Promise.all(
-  allwork.map(async (item) => {
-    const { Content } = await item.render();
-    return { ...item, Content };
-  })
-);
-
+import Head from "@components/Head.astro";
+import { SITE } from "@consts";
 ---
 
-<PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
-  <Container>
-    <h4 class="animate font-semibold text-black dark:text-white">
-      Bonjour, je suis Basile <span class="text-xl">👋🏻</span> 
-    </h4>
-    <div class="space-y-16">
-      <section>
-        <article class="space-y-4">
-          <p class="animate">
-            Je suis un étudiant en 3e année d'école d'ingénieur à Télécom SudParis. J'ai étudié des domaines variés du numérique
-            incluant le développement web, l'IA et les réseaux de neuronnes, la programmation d'applications et de jeux vidéos et surtout le réseau et la cybersécurité. 
-            <b>Je suis d'ailleurs à la recherche d'un stage ingénieur de 6 mois dans ce domaine à partir de Février 2024 !</b>
-          </p>
-          <p class="animate">
-            Sur ce portfolio, vous allez pouvoir trouver une présentation de mes différents projets, qu'ils aient été scolaires ou personnels, 
-            une partie de mon parcours, notamment les stages que j'ai déjà pu réaliser et les compétences mises en oeuvre dans ceux-ci, ainsi 
-            que des posts plus personnels où je parlerai de tout et de rien (peut-être bien de rien). 
-          </p>
-          <p class="animate">
-            N'hésitez donc surtout pas à explorer et à me contacter si mon profil vous intéresse, mes contacts sont disponibles plus bas sur la page 
-            dans la session "Let's Connect"
-          </p>
-        </article>
-      </section>
-
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Latest posts
-          </h5>
-          <Link href="/fr/blog">
-            See all posts
-          </Link>
-        </div>
-        <ul class="flex flex-col gap-4">
-          {blog.map(post => (
-            <li>
-              <ArrowCard entry={post} lang="fr" />
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Work Experience
-          </h5>
-          <Link href="/fr/work">
-            See all work
-          </Link>
-        </div>
-        <ul class="flex flex-col space-y-4">
-          {work.map(entry => (
-            <li>
-              <div class="text-sm opacity-75">
-                {dateRange(entry.data.dateStart, entry.data.dateEnd)}
-              </div>
-              <div class="font-semibold text-black dark:text-white">
-                {entry.data.company}
-              </div>
-              <div class="text-sm opacity-75">
-                {entry.data.role}
-              </div>
-              <article>
-                <entry.Content />
-              </article>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white">
-            Recent projects
-          </h5>
-          <Link href="/fr/projects">
-            See all projects
-          </Link>
-        </div>
-        <ul class="flex flex-col gap-4">
-          {projects.map(project => (
-            <li>
-              <ArrowCard entry={project} lang="fr"/>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section class="animate space-y-4">
-        <h5 class="font-semibold text-black dark:text-white">
-          Let's Connect
-        </h5>
-        <article>
-          <p>
-            Si vous voulez me contacter ou en apprendre plus sur moi, utilisez les liens suivants ou envoyez moi un mail. 
-            <!---
-            If you want to get in touch with me about something or just to say hi,
-            reach out on social media or send me an email.
-            --->
-          </p>
-        </article>
-        <ul class="flex flex-wrap gap-2">
-          {SOCIALS.map(SOCIAL => (
-            <li class="flex gap-x-2 text-nowrap">
-              <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}>
-                {SOCIAL.NAME}
-              </Link>
-              {"/"}
-            </li>
-          ))}
-          <li class="line-clamp-1">
-            <Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME}`}>
-              {SITE.EMAIL}
-            </Link>
-          </li>
-        </ul>
-      </section>
+<head>
+  <Head title={`"Choose a language" | ${SITE.NAME}`} description="index, choose a language" />
+  <meta charset="UTF-8">
+</head>
+<Container>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+  
+    .container {
+      text-align: center;
+    }
+  
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-style: oblique;
+      border: none;
+      cursor: pointer;
+      background-color: #a7a6a6e5;
+      border-radius: 5px;
+    }
+    
+    button:hover {
+      background-color: #ffffffa9;
+    }
+    </style>
+  <html lang="">
+  <!-- Structure HTML --> 
+  <div class="container">
+    <h1 class="font-semibold text-black dark:text-white">Welcome to my portfolio !</h1>
+    <h2 class="font-semibold text-black dark:text-white">Select your language</h2>
+    <div class="buttons text-black dark:text-white">
+      <button onclick="window.location.href='/fr'">Français</button>
+      <button onclick="window.location.href='/en'">English</button>
     </div>
-  </Container>
-</PageLayout>
+  </div>
+  </html>
+</Container>
