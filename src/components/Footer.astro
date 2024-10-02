@@ -2,6 +2,12 @@
 import Container from "@components/Container.astro";
 import { SITE } from "@consts";
 import BackToTop from "@components/BackToTop.astro";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
 ---
 
 <footer class="animate">
@@ -103,10 +109,12 @@ import BackToTop from "@components/BackToTop.astro";
           stroke-linejoin="round"
           class="group-hover:stroke-black group-hover:dark:stroke-white transition-colors duration-300 ease-in-out"
           >
+            <title id="langTitle">{lang === "fr" ? `Passer en anglais` : `Change to French`}</title>
             <circle cx="12" cy="12" r="10"></circle>
             <line x1="2" y1="12" x2="22" y2="12"></line>
             <path d="M12 2a15 15 0 0 1 4 10a15 15 0 0 1 -4 10"></path>
             <path d="M12 2a15 15 0 0 0 -4 10a15 15 0 0 0 4 10"></path>
+            <p>{lang}</p>
           </svg>
         </button>
       </div>
