@@ -14,17 +14,17 @@ Alan Van Trigt
 ## Table of Contents
 
 
-Abstract	
-Introduction	 
-What is a LLM ?	 
-Prompt Injection	  
-Insecure Output Handling  	
-Sensitive Information Disclosure	  
-Model Denial of Service (DoS)	  
-Model Theft	  
-Conclusion	  
-Annexe	  
-References	  
+- Abstract	
+- Introduction	 
+- What is a LLM ?	 
+- Prompt Injection	  
+- Insecure Output Handling  	
+- Sensitive Information Disclosure	  
+- Model Denial of Service (DoS)	  
+- Model Theft	  
+- Conclusion	  
+- Annexe	  
+- References	  
 
 ## Abstract
 
