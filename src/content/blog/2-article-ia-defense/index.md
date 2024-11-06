@@ -15,16 +15,16 @@ Alan Van Trigt
 
 
 Abstract	
-Introduction	
-What is a LLM ?	
-Prompt Injection	
-Insecure Output Handling	
-Sensitive Information Disclosure	
-Model Denial of Service (DoS)	
-Model Theft	
-Conclusion	
-Annexe	
-References	
+Introduction	 
+What is a LLM ?	 
+Prompt Injection	  
+Insecure Output Handling  	
+Sensitive Information Disclosure	  
+Model Denial of Service (DoS)	  
+Model Theft	  
+Conclusion	  
+Annexe	  
+References	  
 
 ## Abstract
 
@@ -35,7 +35,7 @@ The usage of Large Model Languages(LLM) is increasing in today's society. Tools 
 
 The LLM market is presumed to grow from $1,590M in 2023 to $260M in 2030. With such an intensive usage that is intended to grow over the years, the security threat of LLM represents an issue to be addressed. Indeed, no less than 750M applications are expected to use LLM by 2025 which should represent more than 50% of digital work [17]. Current LLM model publisher’s concerns are probably more on how to become the future leader in the market than securing their tools. With that in mind, it was expected that both 2023 and 2024 have known of many LLM data leaks and vulnerabilities. But how is that even possible ? What are the most common LLM’s vulnerabilities, what can be done to prevent their spreading ? And, more importantly, what is even a LLM in the first place ? 
 
-What is a LLM ?
+## What is a LLM ?
 
 First of all, what exactly is a Large Language Model (LLM)? The Red Hat defines a LLM as a type of artificial intelligence model based on natural language processing (NLP) techniques. The one and only goal of a LLM is to be able to understand and accurately generate human language[1].
 
