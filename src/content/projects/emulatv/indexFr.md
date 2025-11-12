@@ -12,6 +12,16 @@ repoURL: "https://github.com/EneVyctis/Emulatv"
 
 - Moi-même
 
+### Technologies utilisées
+
+- Micro services
+- Java avec Spring pour API
+- Postegresql pour la base de données
+- NodeJs pour le backend (simulation des inputs clavier)
+- ReactJs et Nginx pour le frontend
+- Nginx pour le reverse Proxy
+- Docker&Docker Compose pour le deploiement
+
 ## Exigences du projet
 
 C'est un projet personnel qui n'a aucune prétention. J'ai vite réalisé que ma raspberry pi ne suffirait pas, avec ses 1GO de RAM, à faire tourner correctement tout les services ainsi que le navigateur pour l'affichage. Le projet est donc destiné à tourner sur un vieil ordinateur.
